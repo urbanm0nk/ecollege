@@ -35,5 +35,5 @@ elif p1_wins == p2_wins:
     print('No overall winner, game ended in a draw')
     
 else:
-    p2_wins > p1_wins
+    #p2_wins > p1_wins (this expression is not needed as anything not captured in the if and elif statement defaults to this)
     print(f'Player 2 wins the game, by {p2_wins} wins to {p1_wins}')
