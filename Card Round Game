@@ -1,0 +1,38 @@
+player_1 = [10,6,8,9,7,12,7]
+player_2 = [7,6,9,5,2,8,11]
+
+combined = zip(player_1, player_2)
+
+result = list(combined)
+
+print('**********Card Busters**********\n')   #Enforcing white space with "\n"
+
+count = 0
+j = 0
+for i in result:
+    if i[0] > i[1]:
+        count+=1
+        p1_wins = count   #counting the number of rounds won by player 1
+        print(f'Round number {(result.index(i) + 1)}: Player 1 wins the round, with {i[0]} beating {i[1]}')
+        #(result.index(i) + 1)  #This is used to abstract the positional arguement of the rounds!
+        
+    elif i[0] == i[1]:
+        print(f'Round number {(result.index(i) + 1)}: This round has ended in a draw')
+    
+    
+    elif i[1] > i[0]:
+        j+=1
+        p2_wins = j   #Counting the number of rounds won by player 2
+        print(f'Round number {(result.index(i) + 1)}: Player 2 wins the round, with {i[1]} beating {i[0]}')
+        
+
+print('\n')
+
+
+if p1_wins > p2_wins:
+    print(f'Player 1 wins the game, by {p1_wins} wins to {p2_wins}')
+
+
+else:
+    p2_wins > p1_wins
+    print(f'Player 2 wins the game, by {p2_wins} wins to {p1_wins}')
