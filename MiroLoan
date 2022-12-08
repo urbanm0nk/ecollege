@@ -1,0 +1,25 @@
+kitty = 500
+requests = open('loan_requests.txt').read().splitlines()  #iterating over the file and putting the lines as list elememts
+requests = list(map(int, requests))   #This converts the list elements into integer
+with open('loan_requests.txt', 'a') as f:
+    f.write('\n')
+
+    for i in requests:
+        if i < kitty:
+            
+            print(f'Request of {i} paid in full.')
+            f.write(f'Request of {i} paid in full.\n')
+            kitty-= i
+            
+        elif i > kitty and kitty > 0:
+            
+            print(f'Request of {i} could not be paid in full. Partially payment of {kitty} made.')
+            f.write(f'Request of {i} could not be paid in full. Partially payment of {kitty} made.\n')
+            kitty-= i
+
+        else:
+
+            print(f'Outstanding Request: {i}')
+            f.write(f'Outstanding Request: {i}\n')
+
+f.close()           
